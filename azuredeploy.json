@@ -24,13 +24,7 @@
         "metadata": {
           "description": "Specifies the name of the key vault."
         }
-      },
-      "objectId": {
-        "type": "string",
-        "metadata": {
-          "description": "Specifies the object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies. Get it by using Get-AzADUser or Get-AzADServicePrincipal cmdlets."
-        }
-      },            
+      },           
       "adminUserName": {
          "type": "string",
          "metadata": {
@@ -256,20 +250,6 @@
         "enabledForDiskEncryption": true,
         "enabledForTemplateDeployment": true,
         "tenantId": "[subscription().tenantId]",
-        "accessPolicies": [
-          {
-            "objectId": "[parameters('objectId')]",
-            "tenantId": "[subscription().tenantId]",
-            "permissions": {
-              "keys": [
-                "list"
-              ],
-              "secrets": [
-                "list"
-              ]     
-            }
-          }
-        ],
         "sku": {
           "name": "Standard",
           "family": "A"
